@@ -1,0 +1,58 @@
+
+
+.memberships-heading {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.memberships-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.membership-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.membership-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.membership-image {
+  width: 250px;
+  object-fit: cover;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.membership-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.membership-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.membership-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.membership-link:hover {
+  text-decoration: underline;
+}

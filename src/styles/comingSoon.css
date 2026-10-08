@@ -1,0 +1,114 @@
+src/styles/comingSoon.css
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.logo {
+  width: 250px; /* Adjust the size as needed */
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  letter-spacing: 0.5rem;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.timeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 1rem;
+}
+
+.coming-soon-newsletter-container {
+  background: inherit;
+  padding: 6px 0 18px 0;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.coming-soon-newsletter-container p {
+  color: #000;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+html[dir="rtl"] .coming-soon-newsletter-container p {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.coming-soon-newsletter-form {
+  position: relative;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.coming-soon-newsletter-input {
+  height: 55px;
+  width: 100%;
+  padding: 18px 135px 17px 30px;
+  font-weight: 400;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  color: black;
+  font-size: 1.125rem;
+  outline: none;
+}
+
+html[dir="rtl"] .coming-soon-newsletter-input {
+  padding: 18px 30px 17px 135px; /* Adjust padding for RTL */
+}
+
+.coming-soon-newsletter-button {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+  width: 116px;
+  height: 36px;
+  background-color: var(--primary-color);
+  color: black;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+html[dir="rtl"] .coming-soon-newsletter-button {
+  right: auto; /* Remove right positioning */
+  left: 9px; /* Add left positioning */
+}
+
+.coming-soon-newsletter-button:hover {
+  background-color: #95c553;
+}

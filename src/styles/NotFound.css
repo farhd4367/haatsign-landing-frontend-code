@@ -1,0 +1,51 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center everything vertically */
+    height: 100vh;
+    text-align: center;
+    background-color: #f9f9f9; /* Light background color */
+    color: #333; /* Text color */
+}
+
+.logo-top {
+    width: 200px; /* Adjust size as needed */
+    margin-top: -30px; /* Move logo slightly to the top */
+}
+
+.not-found-icon {
+    width: 700px; /* Make the NotFound icon larger */
+    margin: 10px auto; /* Reduce gap after not-found-icon */
+}
+
+.back-home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color); /* Button color */
+    color: black !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 30px;
+}
+
+.back-home-button:hover {
+    background-color: #90CA5F; /* Hover color */
+}
+
+.back-icon {
+    width: 20px; /* Icon size */
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 715px){
+    .not-found-icon {
+        width: 400px;
+        margin: 10px auto;
+    }
+}

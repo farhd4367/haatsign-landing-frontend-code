@@ -1,0 +1,33 @@
+/* BannerTitle.css */
+
+.banner {
+    background-color: var(--primary-color);
+  /* background: linear-gradient(220deg, #eaf3dc, #a4d264); */
+
+  padding: 40px 20px;
+  text-align: start;
+  color: black;
+}
+
+.banner-title {
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--heading-text-color);
+}
+
+.banner-description {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--heading-text-color);
+}
+
+@media (max-width: 768px) {
+  .banner-title {
+    font-size: 2rem;
+  }
+
+  .banner-description {
+    font-size: 1rem;
+  }
+}
+

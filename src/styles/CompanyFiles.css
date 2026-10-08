@@ -1,0 +1,41 @@
+.file-card {
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.file-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.file-icon {
+  font-size: 2rem !important;
+  color: #e74c3c !important;
+}
+
+.file-title {
+  margin: 0 0 10px 0 !important;
+  font-size: 1.1rem !important;
+  color: #2c3e50 !important;
+  line-height: 1.4 !important;
+}
+
+.download-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 8px 16px !important;
+  background-color: var(--primary-color) !important;
+  color: var(--heading-text-color) !important;
+  text-decoration: none !important;
+  border-radius: 5px !important;
+  font-size: 0.9rem !important;
+  transition: background-color 0.2s ease !important;
+}
+
+
+
+.download-button:hover {
+  background-color: #95c553 !important;
+}

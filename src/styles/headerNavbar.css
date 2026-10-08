@@ -1,0 +1,254 @@
+.navbar {
+  padding: 0px;
+}
+
+.navbar-container {
+  position: relative;
+  z-index: 10;
+  border-bottom: 0px solid var(--gray100);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background-color: #ffffff9e !important;
+  border-radius: 0;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100%;
+  height: 6rem;
+  min-height: 5rem;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.5rem 2rem !important;
+  display: flex !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: visible;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar .navbar-collapse {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  transition: all 0.3s ease;
+  max-height: 100%;
+  position: relative;
+  z-index: 15;
+}
+
+.top-dropdown-toggle,
+.top-nav-link {
+  display: block !important;
+  position: relative !important;
+  padding: 15px 10px !important;
+  text-decoration: none !important;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+}
+
+/* ✅ Header active link styles (added from new CSS) */
+.top-dropdown-toggle::before,
+.top-nav-link::before,
+.header-active-link::before {
+  content: "" !important;
+  width: 0px !important;
+  height: 1px !important;
+  background-color: var(--primary-color) !important;
+  position: absolute !important;
+  bottom: 0px !important;
+  right: 0px !important;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+}
+
+.top-dropdown-toggle::after,
+.top-nav-link::after,
+.header-active-link::after {
+  content: "" !important;
+  width: 0px !important;
+  height: 1px !important;
+  background-color: var(--primary-color) !important;
+  position: absolute !important;
+  top: 0px !important;
+  left: 0px !important;
+  border: none !important;
+  vertical-align: 0.255em;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+}
+
+.top-dropdown-toggle:hover::before,
+.top-nav-link:hover::before,
+.header-active-link::before {
+  width: 100% !important;
+}
+
+.top-dropdown-toggle:hover::after,
+.top-nav-link:hover::after,
+.header-active-link::after {
+  width: 100% !important;
+}
+
+.top-dropdown-toggle:hover,
+.top-nav-link:hover,
+.header-active-link {
+  color: var(--primary-color) !important;
+}
+
+/* Active link styles */
+.header-active-link::before,
+.header-active-link::after {
+  width: 100% !important;
+}
+
+.header-active-link {
+  color: var(--primary-color) !important;
+}
+/* ✅ END header active styles */
+
+.dropdown-nav-item {
+  position: relative;
+}
+
+.top-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+
+
+.top-dropdown-menu .dropdown-item:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--link-text-color) !important;
+}
+
+
+
+.dropdown-nav-item:hover .top-dropdown-menu {
+  cursor: pointer !important;
+  display: block;
+}
+
+/* Add these styles to headerNavbar.css */
+.top-dropdown-menu .dropdown-item a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.top-dropdown-menu .dropdown-item a:hover {
+  color: black !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+/* RTL Support */
+html[dir="rtl"] .top-dropdown-menu {
+  text-align: right !important;
+}
+
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    position: fixed;
+    top: 25rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 8rem);
+    background-color: transparent;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .navbar .navbar-collapse.show {
+    opacity: 1;
+  }
+
+  .navbar .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .nav-item {
+    margin: 10px 0px !important;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar .nav-link {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .dropdown-menu {
+    background-color: white !important;
+    border: none !important;
+    text-align: center !important;
+  }
+
+  .dropdown-item {
+    text-align: center;
+    margin: 5px 0px !important;
+  }
+
+  .top-dropdown-menu {
+    box-shadow: none !important;
+  }
+
+  .top-dropdown-menu .dropdown-item:hover {
+    background-color: transparent !important;
+    color: black !important;
+  }
+}
+
+.navbar .nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar .nav-item {
+  margin: 0 10px;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+body {
+  padding-top: 6rem;
+}

@@ -1,0 +1,103 @@
+.carousel-image {
+  height: 600px; /* Set the desired height */
+  object-fit: cover; /* Cover the entire area */
+  width: 100%; /* Ensure the image covers the full width */
+}
+
+.carousel-container {
+  margin-top: -6rem; /* Negative margin to pull the carousel up behind the navbar */
+}
+
+.carousel .control-dots .dot {
+  background: var(--primary-color) !important;
+  width: 12px !important;
+  height: 12px !important;
+  box-shadow: none !important;
+}
+
+.carousel-slide {
+  position: relative;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center the content horizontally */
+  text-align: center; /* Center the text */
+}
+
+.carousel-title {
+  color: white;
+  margin: 0 0 10px 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.carousel-subtitle {
+  padding-bottom: 20px;
+  color: white;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+}
+
+.read-more-button {
+  padding: 10px 20px !important;
+  background-color: transparent !important;
+  color: var(--heading-text-color) !important;
+  border: 2px solid var(--primary-color) !important;
+  border-radius: 30px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.read-more-button:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--heading-text-color) !important;
+}
+
+.haat-btn {
+  background-color: var(--primary-color) !important;
+  color: var(--link-text-color) !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+.haat-btn:hover {
+  background-color: var(--button-hover-bg-color) !important; /* Darker shade on hover */
+}
+
+.form-control:focus {
+  color: var(--bs-body-color) !important;
+  background-color: var(--bs-body-bg) !important;
+  border-color: var(--primary-color) !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.010rem var(--primary-color) !important;
+}
+
+.read-more-btn {
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 30px !important;
+  color: var(--primary-color) !important;
+}
+
+.read-more-btn:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--heading-text-color) !important;
+}
+
+.partner-logo {
+  max-height: 100px !important;
+  max-width: 100px !important;
+  margin: 0 10px !important;
+}
+

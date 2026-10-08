@@ -1,0 +1,30 @@
+.partners-heading {
+    margin-top: 50px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.partners-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.partner-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-image {
+  max-width: 150px;
+  max-height:150px ;
+}
