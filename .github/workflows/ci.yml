@@ -107,10 +107,12 @@ jobs:
           cache-to: type=gha,mode=max
           # Optional repository secrets (Settings > Secrets and variables > Actions).
           # Baked into the browser bundle at build time; unset ones build as empty.
+          # The API URLs fall back to an unreachable address (as in the build job)
+          # because the app otherwise defaults to the production API.
           build-args: |
-            NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
-            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}
-            NEXT_PUBLIC_ADMIN_API_URL=${{ secrets.NEXT_PUBLIC_ADMIN_API_URL }}
+            NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:9/api/landing' }}
+            NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:9/api' }}
+            NEXT_PUBLIC_ADMIN_API_URL=${{ secrets.NEXT_PUBLIC_ADMIN_API_URL || 'http://127.0.0.1:9/api' }}
             NEXT_PUBLIC_TEST_URL=${{ secrets.NEXT_PUBLIC_TEST_URL }}
             NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY }}
             NEXT_PUBLIC_SECRET_KEY=${{ secrets.NEXT_PUBLIC_SECRET_KEY }}

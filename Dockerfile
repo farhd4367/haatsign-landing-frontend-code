@@ -18,7 +18,9 @@
 FROM node:20-alpine AS prod-deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev --no-audit --no-fund
+# The SWC compiler binaries are only needed by `next build`, not `next start`.
+RUN npm ci --omit=dev --no-audit --no-fund \
+ && rm -rf node_modules/@next/swc-*
 
 # ---- Build ------------------------------------------------------------------
 FROM node:20-alpine AS build
@@ -43,7 +45,8 @@ ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL \
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY \
     NEXT_TELEMETRY_DISABLED=1
 
-RUN npm run build
+# .next/cache is build-time cache only; it is not needed to serve the site.
+RUN npm run build && rm -rf .next/cache
 
 # ---- Runtime ----------------------------------------------------------------
 FROM node:20-alpine AS runtime
