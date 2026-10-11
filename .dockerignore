@@ -11,3 +11,6 @@ coverage
 # Local environment files: build-time values are passed as --build-arg
 .env
 .env.*
+
+# Local development stack (not part of the image)
+docker/local

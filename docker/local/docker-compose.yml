@@ -1,0 +1,36 @@
+# Local development stack for the HaatSign landing site (production-like).
+#
+# Builds the production image (Dockerfile: Next.js `next start`, non-root) and
+# runs it on http://localhost:8080 - an origin the landing backend's CORS
+# settings already allow.
+#
+# It reads content from the haatsign-landing-backend repository's local stack
+# (http://localhost:8104). The site fetches data both in the browser and inside
+# this container (ISR), so it uses host.docker.internal, which works from both.
+#
+# Run from the repository root - see docker/local/README.md:
+#   docker compose -f docker/local/docker-compose.yml up -d --build
+
+name: haatsign-landing-frontend-local
+
+services:
+  web:
+    image: haatsign-landing-frontend:local
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+      # Fake, local-only values; API key/secret must match the landing
+      # backend's docker/local/local.env (API_KEY, ENCRYPTION_SECRET).
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://host.docker.internal:8104/api/landing
+        NEXT_PUBLIC_API_URL: http://host.docker.internal:8104/api
+        NEXT_PUBLIC_ADMIN_API_URL: http://host.docker.internal:8104/api
+        NEXT_PUBLIC_TEST_URL: http://localhost:8080
+        NEXT_PUBLIC_API_KEY: local-dev-api-key
+        NEXT_PUBLIC_SECRET_KEY: local-dev-encryption-secret
+        NEXT_PUBLIC_RECAPTCHA_SITE_KEY: local-dev-recaptcha-site-key
+    ports:
+      - "127.0.0.1:8080:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
