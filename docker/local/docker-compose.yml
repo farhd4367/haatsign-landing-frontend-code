@@ -5,8 +5,10 @@
 # settings already allow.
 #
 # It reads content from the haatsign-landing-backend repository's local stack
-# (http://localhost:8104). The site fetches data both in the browser and inside
-# this container (ISR), so it uses host.docker.internal, which works from both.
+# at http://localhost:8104. The site fetches that URL both in the browser and
+# inside this container (ISR). Inside a container "localhost" is the container
+# itself, so the small "landing-api" forwarder shares the web container's
+# network and passes localhost:8104 on to the landing backend on this PC.
 #
 # Run from the repository root - see docker/local/README.md:
 #   docker compose -f docker/local/docker-compose.yml up -d --build
@@ -22,9 +24,9 @@ services:
       # Fake, local-only values; API key/secret must match the landing
       # backend's docker/local/local.env (API_KEY, ENCRYPTION_SECRET).
       args:
-        NEXT_PUBLIC_API_BASE_URL: http://host.docker.internal:8104/api/landing
-        NEXT_PUBLIC_API_URL: http://host.docker.internal:8104/api
-        NEXT_PUBLIC_ADMIN_API_URL: http://host.docker.internal:8104/api
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:8104/api/landing
+        NEXT_PUBLIC_API_URL: http://localhost:8104/api
+        NEXT_PUBLIC_ADMIN_API_URL: http://localhost:8104/api
         NEXT_PUBLIC_TEST_URL: http://localhost:8080
         NEXT_PUBLIC_API_KEY: local-dev-api-key
         NEXT_PUBLIC_SECRET_KEY: local-dev-encryption-secret
@@ -33,4 +35,13 @@ services:
       - "127.0.0.1:8080:3000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  # Makes http://localhost:8104 inside the web container reach the landing
+  # backend running on this PC (the browser already reaches it directly).
+  landing-api:
+    image: alpine/socat:1.8.0.3
+    network_mode: "service:web"
+    command: TCP-LISTEN:8104,fork,reuseaddr TCP:host.docker.internal:8104
+    depends_on: [web]
     restart: unless-stopped

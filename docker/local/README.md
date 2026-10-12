@@ -31,6 +31,11 @@ landing backend appears after a page's revalidation period (60 seconds).
 
 ## Notes
 
+- The site calls the landing API at `http://localhost:8104` from the browser
+  *and* from inside the container (ISR). The small `landing-api` container
+  (socat) makes `localhost:8104` inside the web container reach the landing
+  backend on this PC, so one URL works for both.
+
 - The build arguments are **fake, local-only values**; the API key/secret must
   match the landing backend's `docker/local/local.env`.
 - Port 8080 is used because the landing backend's CORS settings already allow
